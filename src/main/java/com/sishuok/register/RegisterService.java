@@ -22,13 +22,8 @@ public class RegisterService {
 
     public void register(String username, String password) {
         System.out.println(username + "注册成功！");
-        publishRegisterEvent(new User(username, password));
-    }
-
-    private void publishRegisterEvent(User user) {
+        User user=new User(username,password);
         applicationContext.publishEvent(new RegisterEvent(user));
-
     }
-
-
+    
 }
