@@ -25,5 +25,5 @@ public class RegisterService {
         User user=new User(username,password);
         applicationContext.publishEvent(new RegisterEvent(user));
     }
-    
+
 }

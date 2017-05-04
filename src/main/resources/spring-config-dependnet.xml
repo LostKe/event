@@ -6,12 +6,11 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.sishuok"/>
+    <bean id="fileHelper" class="com.sishuok.dependnet.FileHelper" init-method="init" destroy-method="destory">
+        <property name="file" value="D:/dependent.txt"/>
+    </bean>
 
-
-    <bean id="hello" class="com.sishuok.hello.Hello" lazy-init="true">
-        <property name="userName">
-            <value>zhangsan</value>
-        </property>
+    <bean id="storeText" class="com.sishuok.dependnet.StoreText" init-method="init" destroy-method="destory" depends-on="fileHelper">
+        <property name="fileHelper" ref="fileHelper"/>
     </bean>
 </beans>
