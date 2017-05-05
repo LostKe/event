@@ -1,8 +1,9 @@
 package com.sishuok.dependnet;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+
 
 import java.io.IOException;
 
@@ -17,6 +18,11 @@ public class Test {
         context.registerShutdownHook();
 
         StoreText storeText=context.getBean("storeText",StoreText.class);
-        storeText.store("best exe");
+        System.out.println(storeText);
+        storeText.store("bessdsdsadsdt exe");
+        StoreText storeTex1=context.getBean("storeText",StoreText.class);
+        System.out.println(storeTex1);
+
+
     }
 }
